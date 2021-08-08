@@ -1,0 +1,95 @@
+<div class="mat-elevation-z8" *ngIf="loaded">
+  <!--NOTES FOR NEXT TIME: Work on centering the ticker on the displayed page, then work on displaying all tabs-->
+  <table mat-table [dataSource]="dataSource">
+    <ng-container matColumnDef="date">
+      <th mat-header-cell *matHeaderCellDef> Date </th>
+      <td mat-cell *matCellDef="let incomeStatement"> {{incomeStatement.date}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="revenue">
+      <th mat-header-cell *matHeaderCellDef> Revenue </th>
+      <td mat-cell *matCellDef="let incomeStatement"> {{incomeStatement.revenue}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="costOfRevenue">
+      <th mat-header-cell *matHeaderCellDef> Cost of Revenue </th>
+      <td mat-cell *matCellDef="let incomeStatement"> {{incomeStatement.costOfRevenue}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="grossProfit">
+      <th mat-header-cell *matHeaderCellDef> Gross Profit </th>
+      <td mat-cell *matCellDef="let incomeStatement"> {{incomeStatement.grossProfit}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="grossProfitRatio">
+      <th mat-header-cell *matHeaderCellDef> Gross Profit Ratio </th>
+      <td mat-cell *matCellDef="let incomeStatement"> {{incomeStatement.grossProfitRatio}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="researchAndDevelopmentExpenses">
+      <th mat-header-cell *matHeaderCellDef> Research And Development Expenses </th>
+      <td mat-cell *matCellDef="let incomeStatement"> {{incomeStatement.researchAndDevelopmentExpenses}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="generalAndAdministrativeExpenses">
+      <th mat-header-cell *matHeaderCellDef> General And Administrative Expenses </th>
+      <td mat-cell *matCellDef="let incomeStatement"> {{incomeStatement.generalAndAdministrativeExpenses}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="sellingAndMarketingExpenses">
+      <th mat-header-cell *matHeaderCellDef> Selling And Marketing Expenses </th>
+      <td mat-cell *matCellDef="let incomeStatement"> {{incomeStatement.sellingAndMarketingExpenses}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="operatingExpenses">
+      <th mat-header-cell *matHeaderCellDef> Operating Expenses </th>
+      <td mat-cell *matCellDef="let incomeStatement"> {{incomeStatement.operatingExpenses}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="operatingIncome">
+      <th mat-header-cell *matHeaderCellDef> Operating Income </th>
+      <td mat-cell *matCellDef="let incomeStatement"> {{incomeStatement.operatingIncome}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="operatingIncomeRatio">
+      <th mat-header-cell *matHeaderCellDef> Operating Income Ratio </th>
+      <td mat-cell *matCellDef="let incomeStatement"> {{incomeStatement.operatingIncomeRatio}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="interestExpense">
+      <th mat-header-cell *matHeaderCellDef> Interest Expense </th>
+      <td mat-cell *matCellDef="let incomeStatement"> {{incomeStatement.interestExpense}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="netIncome">
+      <th mat-header-cell *matHeaderCellDef> Net Income </th>
+      <td mat-cell *matCellDef="let incomeStatement"> {{incomeStatement.netIncome}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="netIncomeRatio">
+      <th mat-header-cell *matHeaderCellDef> Net Income Ratio </th>
+      <td mat-cell *matCellDef="let incomeStatement"> {{incomeStatement.netIncomeRatio}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="eps">
+      <th mat-header-cell *matHeaderCellDef> EPS </th>
+      <td mat-cell *matCellDef="let incomeStatement"> {{incomeStatement.eps}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="ebitda">
+      <th mat-header-cell *matHeaderCellDef> EBITDA </th>
+      <td mat-cell *matCellDef="let incomeStatement"> {{incomeStatement.ebitda}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="ebitdaratio">
+      <th mat-header-cell *matHeaderCellDef> EBITDA </th>
+      <td mat-cell *matCellDef="let incomeStatement"> {{incomeStatement.ebitdaratio}} </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;">
+    </tr>
+  </table>
+
+  <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+</div>

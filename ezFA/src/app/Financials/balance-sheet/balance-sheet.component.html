@@ -1,0 +1,210 @@
+<div class="mat-elevation-z8" *ngIf="loaded">
+    <!--NOTES FOR NEXT TIME: Work on centering the ticker on the displayed page, then work on displaying all tabs-->
+    <table mat-table [dataSource]="dataSource">
+      <ng-container matColumnDef="date">
+        <th mat-header-cell *matHeaderCellDef> Date </th>
+        <td mat-cell *matCellDef="let balanceSheetStatement"> {{balanceSheetStatement.date}} </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="cashAndCashEquivalents">
+        <th mat-header-cell *matHeaderCellDef> Cash And Cash Equivalents </th>
+        <td mat-cell *matCellDef="let balanceSheetStatement"> {{balanceSheetStatement.cashAndCashEquivalents}} </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="shortTermInvestments">
+        <th mat-header-cell *matHeaderCellDef> Short Term Investments </th>
+        <td mat-cell *matCellDef="let balanceSheetStatement"> {{balanceSheetStatement.shortTermInvestments}} </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="cashAndShortTermInvestments">
+        <th mat-header-cell *matHeaderCellDef> Cash And Short Term Investments </th>
+        <td mat-cell *matCellDef="let balanceSheetStatement"> {{balanceSheetStatement.cashAndShortTermInvestments}} </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="netReceivables">
+        <th mat-header-cell *matHeaderCellDef> Net Receivables </th>
+        <td mat-cell *matCellDef="let balanceSheetStatement"> {{balanceSheetStatement.netReceivables}} </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="inventory">
+        <th mat-header-cell *matHeaderCellDef> Inventory </th>
+        <td mat-cell *matCellDef="let balanceSheetStatement"> {{balanceSheetStatement.inventory}} </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="otherCurrentAssets">
+        <th mat-header-cell *matHeaderCellDef> Other Current Assets </th>
+        <td mat-cell *matCellDef="let balanceSheetStatement"> {{balanceSheetStatement.otherCurrentAssets}} </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="totalCurrentAssets">
+        <th mat-header-cell *matHeaderCellDef> Total Current Assets </th>
+        <td mat-cell *matCellDef="let balanceSheetStatement"> {{balanceSheetStatement.totalCurrentAssets}} </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="propertyPlantEquipmentNet">
+        <th mat-header-cell *matHeaderCellDef> Property Plant Equipment Net </th>
+        <td mat-cell *matCellDef="let balanceSheetStatement"> {{balanceSheetStatement.propertyPlantEquipmentNet}} </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="goodwill">
+        <th mat-header-cell *matHeaderCellDef> Goodwill </th>
+        <td mat-cell *matCellDef="let balanceSheetStatement"> {{balanceSheetStatement.goodwill}} </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="intangibleAssets">
+        <th mat-header-cell *matHeaderCellDef> Intangible Assets </th>
+        <td mat-cell *matCellDef="let balanceSheetStatement"> {{balanceSheetStatement.intangibleAssets}} </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="goodwillAndIntangibleAssets">
+        <th mat-header-cell *matHeaderCellDef> Goodwill And Intangible Assets </th>
+        <td mat-cell *matCellDef="let balanceSheetStatement"> {{balanceSheetStatement.goodwillAndIntangibleAssets}} </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="longTermInvestments">
+        <th mat-header-cell *matHeaderCellDef> Long Term Investments </th>
+        <td mat-cell *matCellDef="let balanceSheetStatement"> {{balanceSheetStatement.longTermInvestments}} </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="taxAssets">
+        <th mat-header-cell *matHeaderCellDef> Tax Assets </th>
+        <td mat-cell *matCellDef="let balanceSheetStatement"> {{balanceSheetStatement.taxAssets}} </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="otherNonCurrentAssets">
+        <th mat-header-cell *matHeaderCellDef> Other Non Current Assets </th>
+        <td mat-cell *matCellDef="let balanceSheetStatement"> {{balanceSheetStatement.otherNonCurrentAssets}} </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="totalNonCurrentAssets">
+        <th mat-header-cell *matHeaderCellDef> Total Non Current Assets </th>
+        <td mat-cell *matCellDef="let balanceSheetStatement"> {{balanceSheetStatement.totalNonCurrentAssets}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="otherAssets">
+        <th mat-header-cell *matHeaderCellDef> Other Assets </th>
+        <td mat-cell *matCellDef="let balanceSheetStatement"> {{balanceSheetStatement.otherAssets}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="totalAssets">
+        <th mat-header-cell *matHeaderCellDef> Total Assets </th>
+        <td mat-cell *matCellDef="let balanceSheetStatement"> {{balanceSheetStatement.totalAssets}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="accountPayables">
+        <th mat-header-cell *matHeaderCellDef> Account Payables </th>
+        <td mat-cell *matCellDef="let balanceSheetStatement"> {{balanceSheetStatement.accountPayables}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="shortTermDebt">
+        <th mat-header-cell *matHeaderCellDef> Short Term Debt </th>
+        <td mat-cell *matCellDef="let balanceSheetStatement"> {{balanceSheetStatement.shortTermDebt}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="taxPayables">
+        <th mat-header-cell *matHeaderCellDef> Tax Payables </th>
+        <td mat-cell *matCellDef="let balanceSheetStatement"> {{balanceSheetStatement.taxPayables}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="deferredRevenue">
+        <th mat-header-cell *matHeaderCellDef> Deferred Revenue </th>
+        <td mat-cell *matCellDef="let balanceSheetStatement"> {{balanceSheetStatement.deferredRevenue}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="otherCurrentLiabilities">
+        <th mat-header-cell *matHeaderCellDef> Other Current Liabilities </th>
+        <td mat-cell *matCellDef="let balanceSheetStatement"> {{balanceSheetStatement.otherCurrentLiabilities}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="totalCurrentLiabilities">
+        <th mat-header-cell *matHeaderCellDef> Total Current Liabilities </th>
+        <td mat-cell *matCellDef="let balanceSheetStatement"> {{balanceSheetStatement.totalCurrentLiabilities}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="longTermDebt">
+        <th mat-header-cell *matHeaderCellDef> Tong Term Debt </th>
+        <td mat-cell *matCellDef="let balanceSheetStatement"> {{balanceSheetStatement.longTermDebt}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="deferredRevenueNonCurrent">
+        <th mat-header-cell *matHeaderCellDef> Deferred Revenue Non Current </th>
+        <td mat-cell *matCellDef="let balanceSheetStatement"> {{balanceSheetStatement.deferredRevenueNonCurrent}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="deferredTaxLiabilitiesNonCurrent">
+        <th mat-header-cell *matHeaderCellDef> Deferred Tax Liabilities Non Current </th>
+        <td mat-cell *matCellDef="let balanceSheetStatement"> {{balanceSheetStatement.deferredTaxLiabilitiesNonCurrent}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="otherNonCurrentLiabilities">
+        <th mat-header-cell *matHeaderCellDef> Other Non Current Liabilities </th>
+        <td mat-cell *matCellDef="let balanceSheetStatement"> {{balanceSheetStatement.otherNonCurrentLiabilities}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="totalNonCurrentLiabilities">
+        <th mat-header-cell *matHeaderCellDef> Total Non Current Liabilities </th>
+        <td mat-cell *matCellDef="let balanceSheetStatement"> {{balanceSheetStatement.totalNonCurrentLiabilities}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="otherLiabilities">
+        <th mat-header-cell *matHeaderCellDef> Other Liabilities </th>
+        <td mat-cell *matCellDef="let balanceSheetStatement"> {{balanceSheetStatement.otherLiabilities}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="totalLiabilities">
+        <th mat-header-cell *matHeaderCellDef> Total Liabilities </th>
+        <td mat-cell *matCellDef="let balanceSheetStatement"> {{balanceSheetStatement.totalLiabilities}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="commonStock">
+        <th mat-header-cell *matHeaderCellDef> Common Stock </th>
+        <td mat-cell *matCellDef="let balanceSheetStatement"> {{balanceSheetStatement.commonStock}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="retainedEarnings">
+        <th mat-header-cell *matHeaderCellDef> Retained Earnings </th>
+        <td mat-cell *matCellDef="let balanceSheetStatement"> {{balanceSheetStatement.retainedEarnings}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="accumulatedOtherComprehensiveIncomeLoss">
+        <th mat-header-cell *matHeaderCellDef> Sccumulated Other Comprehensive Income Loss </th>
+        <td mat-cell *matCellDef="let balanceSheetStatement"> {{balanceSheetStatement.accumulatedOtherComprehensiveIncomeLoss}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="othertotalStockholdersEquity">
+        <th mat-header-cell *matHeaderCellDef> Other Total Stockholders Equity </th>
+        <td mat-cell *matCellDef="let balanceSheetStatement"> {{balanceSheetStatement.othertotalStockholdersEquity}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="totalStockholdersEquity">
+        <th mat-header-cell *matHeaderCellDef> Total Stockholders Equity </th>
+        <td mat-cell *matCellDef="let balanceSheetStatement"> {{balanceSheetStatement.totalStockholdersEquity}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="totalLiabilitiesAndStockholdersEquity">
+        <th mat-header-cell *matHeaderCellDef> Total Liabilities And Stockholders Equity </th>
+        <td mat-cell *matCellDef="let balanceSheetStatement"> {{balanceSheetStatement.totalLiabilitiesAndStockholdersEquity}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="totalInvestments">
+        <th mat-header-cell *matHeaderCellDef> Total Investments </th>
+        <td mat-cell *matCellDef="let balanceSheetStatement"> {{balanceSheetStatement.totalInvestments}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="totalDebt">
+        <th mat-header-cell *matHeaderCellDef> Total Debt </th>
+        <td mat-cell *matCellDef="let balanceSheetStatement"> {{balanceSheetStatement.totalDebt}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="netDebt">
+        <th mat-header-cell *matHeaderCellDef> Net Debt </th>
+        <td mat-cell *matCellDef="let balanceSheetStatement"> {{balanceSheetStatement.netDebt}} </td>
+      </ng-container>
+  
+      <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;">
+      </tr>
+    </table>
+  
+    <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+</div>

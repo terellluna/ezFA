@@ -1,0 +1,31 @@
+.ticker_header{
+    justify-content: center;
+    text-align: center;
+    font-size: 20px;
+    margin-bottom: 0px;
+}
+.ticker{
+    margin-right: 20px;
+    margin-left: 20px;
+    text-align: center;
+}
+.title{
+    
+    font-size: 40px;
+    margin:auto;
+    margin-left: 10px;
+    
+}
+.buttons{
+    margin:auto;
+    margin-right: 10px;
+    justify-content:right;
+}
+
+header{
+    background-color: darkgray;
+    display: grid;
+    grid-template-columns: 33% 33% 33%;
+    text-align: left;
+}
+

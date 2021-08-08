@@ -7,9 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FinancialsContainerComponent implements OnInit {
 
+  symbol = 'AAPL';
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  research(){
+    this.symbol = (<HTMLInputElement>document.getElementById("ticker")).value;
+    console.log(this.symbol);
+  }
 }

@@ -1,1 +1,30 @@
-<p>financials-container works!</p>
+<header>
+    <div class = "title">
+        E.Z.F.A.
+    </div>
+    <div class="ticker_header">
+        <mat-label> Currently Researching: </mat-label>
+        <mat-form-field class="ticker">
+            <input type="text" id="ticker" matInput value={{symbol}}>
+        </mat-form-field>
+        <button mat-stroked-button (click)="research()"> Research </button>
+    </div>
+    <div class="buttons">
+        <button mat-stroked-button> Search </button>
+    </div>
+</header>
+<main>
+    <mat-tab-group mat-stretch-tabs>
+        <mat-tab label="Income Statement">
+            <app-income-statement [symbol]="symbol"></app-income-statement>
+        </mat-tab>
+        <mat-tab label="Cash Flow Statement">
+            <div class="ticker_header">
+            </div>
+            <app-cash-flows [symbol]="symbol"></app-cash-flows>
+        </mat-tab>
+        <mat-tab label="Balance Sheet">
+            <app-balance-sheet [symbol]="symbol"></app-balance-sheet>
+        </mat-tab>
+    </mat-tab-group>   
+</main>
