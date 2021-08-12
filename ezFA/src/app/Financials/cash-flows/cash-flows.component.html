@@ -8,132 +8,132 @@
   
       <ng-container matColumnDef="netIncome">
         <th mat-header-cell *matHeaderCellDef> Net Income </th>
-        <td mat-cell *matCellDef="let cashFlowStatement"> {{cashFlowStatement.netIncome}} </td>
+        <td mat-cell *matCellDef="let cashFlowStatement"> {{cashFlowStatement.netIncome | currency}} </td>
       </ng-container>
   
       <ng-container matColumnDef="depreciationAndAmortization">
         <th mat-header-cell *matHeaderCellDef> Depreciation And Amortization </th>
-        <td mat-cell *matCellDef="let cashFlowStatement"> {{cashFlowStatement.depreciationAndAmortization}} </td>
+        <td mat-cell *matCellDef="let cashFlowStatement"> {{cashFlowStatement.depreciationAndAmortization | currency}} </td>
       </ng-container>
   
       <ng-container matColumnDef="deferredIncomeTax">
         <th mat-header-cell *matHeaderCellDef> Deferred Income Tax </th>
-        <td mat-cell *matCellDef="let cashFlowStatement"> {{cashFlowStatement.deferredIncomeTax}} </td>
+        <td mat-cell *matCellDef="let cashFlowStatement"> {{cashFlowStatement.deferredIncomeTax | currency}} </td>
       </ng-container>
   
       <ng-container matColumnDef="stockBasedCompensation">
         <th mat-header-cell *matHeaderCellDef> Stock Based Compensation </th>
-        <td mat-cell *matCellDef="let cashFlowStatement"> {{cashFlowStatement.stockBasedCompensation}} </td>
+        <td mat-cell *matCellDef="let cashFlowStatement"> {{cashFlowStatement.stockBasedCompensation | currency}} </td>
       </ng-container>
   
       <ng-container matColumnDef="changeInWorkingCapital">
         <th mat-header-cell *matHeaderCellDef> Change In Working Capital </th>
-        <td mat-cell *matCellDef="let cashFlowStatement"> {{cashFlowStatement.changeInWorkingCapital}} </td>
+        <td mat-cell *matCellDef="let cashFlowStatement"> {{cashFlowStatement.changeInWorkingCapital | currency}} </td>
       </ng-container>
   
       <ng-container matColumnDef="accountsReceivables">
         <th mat-header-cell *matHeaderCellDef> Accounts Receivables </th>
-        <td mat-cell *matCellDef="let cashFlowStatement"> {{cashFlowStatement.accountsReceivables}} </td>
+        <td mat-cell *matCellDef="let cashFlowStatement"> {{cashFlowStatement.accountsReceivables | currency}} </td>
       </ng-container>
   
       <ng-container matColumnDef="inventory">
         <th mat-header-cell *matHeaderCellDef> Inventory </th>
-        <td mat-cell *matCellDef="let cashFlowStatement"> {{cashFlowStatement.inventory}} </td>
+        <td mat-cell *matCellDef="let cashFlowStatement"> {{cashFlowStatement.inventory | currency}} </td>
       </ng-container>
   
       <ng-container matColumnDef="accountsPayables">
         <th mat-header-cell *matHeaderCellDef> Accounts Payables </th>
-        <td mat-cell *matCellDef="let cashFlowStatement"> {{cashFlowStatement.accountsPayables}} </td>
+        <td mat-cell *matCellDef="let cashFlowStatement"> {{cashFlowStatement.accountsPayables | currency}} </td>
       </ng-container>
   
       <ng-container matColumnDef="otherNonCashItems">
         <th mat-header-cell *matHeaderCellDef> Other Non Cash Items </th>
-        <td mat-cell *matCellDef="let cashFlowStatement"> {{cashFlowStatement.otherNonCashItems}} </td>
+        <td mat-cell *matCellDef="let cashFlowStatement"> {{cashFlowStatement.otherNonCashItems | currency}} </td>
       </ng-container>
   
       <ng-container matColumnDef="netCashProvidedByOperatingActivities">
         <th mat-header-cell *matHeaderCellDef> Net Cash Provided By Operating Activities </th>
-        <td mat-cell *matCellDef="let cashFlowStatement"> {{cashFlowStatement.netCashProvidedByOperatingActivities}} </td>
+        <td mat-cell *matCellDef="let cashFlowStatement"> {{cashFlowStatement.netCashProvidedByOperatingActivities | currency}} </td>
       </ng-container>
   
       <ng-container matColumnDef="investmentInPropertyPlantandEquipment">
         <th mat-header-cell *matHeaderCellDef> Investment In Property Plant And Equipment </th>
-        <td mat-cell *matCellDef="let cashFlowStatement"> {{cashFlowStatement.investmentInPropertyPlantandEquipment}} </td>
+        <td mat-cell *matCellDef="let cashFlowStatement"> {{cashFlowStatement.investmentInPropertyPlantandEquipment | currency}} </td>
       </ng-container>
   
       <ng-container matColumnDef="acquisitionsNet">
         <th mat-header-cell *matHeaderCellDef> Acquisitions Net </th>
-        <td mat-cell *matCellDef="let cashFlowStatement"> {{cashFlowStatement.acquisitionsNet}} </td>
+        <td mat-cell *matCellDef="let cashFlowStatement"> {{cashFlowStatement.acquisitionsNet | currency}} </td>
       </ng-container>
   
       <ng-container matColumnDef="purchasesOfInvestments">
         <th mat-header-cell *matHeaderCellDef> Purchases Of Investments </th>
-        <td mat-cell *matCellDef="let cashFlowStatement"> {{cashFlowStatement.purchasesOfInvestments}} </td>
+        <td mat-cell *matCellDef="let cashFlowStatement"> {{cashFlowStatement.purchasesOfInvestments | currency}} </td>
       </ng-container>
   
       <ng-container matColumnDef="salesMaturitiesOfInvestments">
         <th mat-header-cell *matHeaderCellDef> Sales Maturities Of Investments </th>
-        <td mat-cell *matCellDef="let cashFlowStatement"> {{cashFlowStatement.salesMaturitiesOfInvestments}} </td>
+        <td mat-cell *matCellDef="let cashFlowStatement"> {{cashFlowStatement.salesMaturitiesOfInvestments | currency}} </td>
       </ng-container>
   
       <ng-container matColumnDef="netCashUsedForInvestingActivities">
         <th mat-header-cell *matHeaderCellDef> Net Cash Used For Investing Activities </th>
-        <td mat-cell *matCellDef="let cashFlowStatement"> {{cashFlowStatement.netCashUsedForInvestingActivities}} </td>
+        <td mat-cell *matCellDef="let cashFlowStatement"> {{cashFlowStatement.netCashUsedForInvestingActivities | currency}} </td>
       </ng-container>
   
       <ng-container matColumnDef="debtRepayment">
         <th mat-header-cell *matHeaderCellDef> Debt Repayment </th>
-        <td mat-cell *matCellDef="let cashFlowStatement"> {{cashFlowStatement.debtRepayment}} </td>
+        <td mat-cell *matCellDef="let cashFlowStatement"> {{cashFlowStatement.debtRepayment | currency}} </td>
       </ng-container>
 
       <ng-container matColumnDef="commonStockIssued">
         <th mat-header-cell *matHeaderCellDef> Common Stock Issued </th>
-        <td mat-cell *matCellDef="let cashFlowStatement"> {{cashFlowStatement.commonStockIssued}} </td>
+        <td mat-cell *matCellDef="let cashFlowStatement"> {{cashFlowStatement.commonStockIssued | currency}} </td>
       </ng-container>
 
       <ng-container matColumnDef="commonStockRepurchased">
         <th mat-header-cell *matHeaderCellDef> Common Stock Repurchased </th>
-        <td mat-cell *matCellDef="let cashFlowStatement"> {{cashFlowStatement.commonStockRepurchased}} </td>
+        <td mat-cell *matCellDef="let cashFlowStatement"> {{cashFlowStatement.commonStockRepurchased | currency}} </td>
       </ng-container>
 
       <ng-container matColumnDef="dividendsPaid">
         <th mat-header-cell *matHeaderCellDef> Dividends Paid </th>
-        <td mat-cell *matCellDef="let cashFlowStatement"> {{cashFlowStatement.dividendsPaid}} </td>
+        <td mat-cell *matCellDef="let cashFlowStatement"> {{cashFlowStatement.dividendsPaid | currency}} </td>
       </ng-container>
 
       <ng-container matColumnDef="netCashUsedProvidedByFinancingActivities">
         <th mat-header-cell *matHeaderCellDef> Net Cash Used Provided By Financing Activities </th>
-        <td mat-cell *matCellDef="let cashFlowStatement"> {{cashFlowStatement.netCashUsedProvidedByFinancingActivities}} </td>
+        <td mat-cell *matCellDef="let cashFlowStatement"> {{cashFlowStatement.netCashUsedProvidedByFinancingActivities | currency}} </td>
       </ng-container>
 
       <ng-container matColumnDef="netChangeInCash">
         <th mat-header-cell *matHeaderCellDef> Net Change In Cash </th>
-        <td mat-cell *matCellDef="let cashFlowStatement"> {{cashFlowStatement.netChangeInCash}} </td>
+        <td mat-cell *matCellDef="let cashFlowStatement"> {{cashFlowStatement.netChangeInCash | currency}} </td>
       </ng-container>
 
       <ng-container matColumnDef="cashAtBeginningofPeriod">
         <th mat-header-cell *matHeaderCellDef> Cash At Beginning of Period </th>
-        <td mat-cell *matCellDef="let cashFlowStatement"> {{cashFlowStatement.cashAtBeginningofPeriod}} </td>
+        <td mat-cell *matCellDef="let cashFlowStatement"> {{cashFlowStatement.cashAtBeginningofPeriod | currency}} </td>
       </ng-container>
 
       <ng-container matColumnDef="cashAtEndOfPeriod">
         <th mat-header-cell *matHeaderCellDef> Cash At End Of Period </th>
-        <td mat-cell *matCellDef="let cashFlowStatement"> {{cashFlowStatement.cashAtEndOfPeriod}} </td>
+        <td mat-cell *matCellDef="let cashFlowStatement"> {{cashFlowStatement.cashAtEndOfPeriod | currency}} </td>
       </ng-container>
 
       <ng-container matColumnDef="operatingCashFlow">
         <th mat-header-cell *matHeaderCellDef> Operating Cash Flow </th>
-        <td mat-cell *matCellDef="let cashFlowStatement"> {{cashFlowStatement.operatingCashFlow}} </td>
+        <td mat-cell *matCellDef="let cashFlowStatement"> {{cashFlowStatement.operatingCashFlow | currency}} </td>
       </ng-container>
 
       <ng-container matColumnDef="capitalExpenditure">
         <th mat-header-cell *matHeaderCellDef> Capital Expenditure </th>
-        <td mat-cell *matCellDef="let cashFlowStatement"> {{cashFlowStatement.capitalExpenditure}} </td>
+        <td mat-cell *matCellDef="let cashFlowStatement"> {{cashFlowStatement.capitalExpenditure | currency}} </td>
       </ng-container>
 
       <ng-container matColumnDef="freeCashFlow">
         <th mat-header-cell *matHeaderCellDef> Free Cash Flow </th>
-        <td mat-cell *matCellDef="let cashFlowStatement"> {{cashFlowStatement.freeCashFlow}} </td>
+        <td mat-cell *matCellDef="let cashFlowStatement"> {{cashFlowStatement.freeCashFlow | currency}} </td>
       </ng-container>
   
       <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
