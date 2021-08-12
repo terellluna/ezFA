@@ -15,6 +15,7 @@ import { CashFlowsComponent } from './Financials/cash-flows/cash-flows.component
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
+import { PriceHistoryComponent } from './Financials/price-history/price-history.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import {MatButtonModule} from '@angular/material/button';
     IncomeStatementComponent,
     BalanceSheetComponent,
     CashFlowsComponent,
+    PriceHistoryComponent,
   ],
   imports: [
     BrowserModule,
