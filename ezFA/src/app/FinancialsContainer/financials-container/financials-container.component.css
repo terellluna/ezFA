@@ -25,6 +25,7 @@
 main{
     display:inline-flex;
     width:100%;
+    height:75%;
 }
 
 .price_panel{
@@ -33,6 +34,7 @@ main{
 
 .info_panel{
     width:50%;
+    height:100%;
 }
 
 header{
