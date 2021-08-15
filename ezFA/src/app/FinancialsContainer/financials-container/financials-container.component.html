@@ -14,7 +14,49 @@
     </div>
 </header>
 <main>
-    <mat-tab-group mat-stretch-tabs>
+    <div class="price_panel">
+        Price graph goes here
+    </div>
+    <div class ="info_panel">
+        <mat-accordion>
+            <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                  <mat-panel-title>
+                    Income Statement
+                  </mat-panel-title>
+                  <mat-panel-description>
+                    A summary of income for {{symbol}}
+                  </mat-panel-description>
+                </mat-expansion-panel-header>
+                <app-income-statement [symbol]="symbol"></app-income-statement>
+            </mat-expansion-panel>
+    
+            <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                  <mat-panel-title>
+                    Cash Flow Statement
+                  </mat-panel-title>
+                  <mat-panel-description>
+                    A summary of cash inflow and outflow for {{symbol}}
+                  </mat-panel-description>
+                </mat-expansion-panel-header>
+                <app-cash-flows [symbol]="symbol"></app-cash-flows>
+            </mat-expansion-panel>
+    
+            <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                  <mat-panel-title>
+                    Balance Sheet
+                  </mat-panel-title>
+                  <mat-panel-description>
+                    A summary of assets and liabilities for {{symbol}}
+                  </mat-panel-description>
+                </mat-expansion-panel-header>
+                <app-balance-sheet [symbol]="symbol"></app-balance-sheet>
+            </mat-expansion-panel>
+        </mat-accordion>
+    </div>
+    <!--<mat-tab-group mat-stretch-tabs>
         <mat-tab label="Income Statement">
             <app-income-statement [symbol]="symbol"></app-income-statement>
         </mat-tab>
@@ -26,5 +68,5 @@
         <mat-tab label="Balance Sheet">
             <app-balance-sheet [symbol]="symbol"></app-balance-sheet>
         </mat-tab>
-    </mat-tab-group>   
+    </mat-tab-group>-->
 </main>
