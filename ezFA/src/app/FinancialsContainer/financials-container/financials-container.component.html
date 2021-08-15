@@ -19,7 +19,7 @@
     </div>
     <div class ="info_panel">
         <mat-accordion>
-            <mat-expansion-panel>
+            <mat-expansion-panel id="top_panel">
                 <mat-expansion-panel-header>
                   <mat-panel-title>
                     Income Statement
@@ -43,7 +43,7 @@
                 <app-cash-flows [symbol]="symbol"></app-cash-flows>
             </mat-expansion-panel>
     
-            <mat-expansion-panel>
+            <mat-expansion-panel id="bottom_panel">
                 <mat-expansion-panel-header>
                   <mat-panel-title>
                     Balance Sheet
