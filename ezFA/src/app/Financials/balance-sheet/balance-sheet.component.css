@@ -1,9 +1,8 @@
-.mat-elevation-z8{
+.balance_sheet_table{
     overflow:scroll;
-    height:85vh;
+    max-height:50vh;
     width:100%;
-}
-  
+}  
     
 .mat-form-field {
     font-size: 14px;
