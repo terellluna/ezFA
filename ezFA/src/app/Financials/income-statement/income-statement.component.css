@@ -1,6 +1,6 @@
-.mat-elevation-z8{
+.income_statement{
   overflow:scroll;
-  height:85vh;
+  max-height:50vh;
   width:100%;
 }
 
