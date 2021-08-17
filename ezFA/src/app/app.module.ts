@@ -14,9 +14,10 @@ import { BalanceSheetComponent } from './Financials/balance-sheet/balance-sheet.
 import { CashFlowsComponent } from './Financials/cash-flows/cash-flows.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-import {MatButtonModule} from '@angular/material/button';
+import { MatButtonModule } from '@angular/material/button';
 import { PriceHistoryComponent } from './Financials/price-history/price-history.component';
 import { MatExpansionModule } from '@angular/material/expansion';
+import { NgxChartsModule }from '@swimlane/ngx-charts';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { MatExpansionModule } from '@angular/material/expansion';
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
-    MatExpansionModule
+    MatExpansionModule,
+    NgxChartsModule
   ],
   providers: [StockService],
   bootstrap: [AppComponent]

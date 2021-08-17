@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { StockService } from 'src/app/StockService/stock.service';
 
 @Component({
   selector: 'app-price-history',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PriceHistoryComponent implements OnInit {
 
-  constructor() { }
+  constructor(private stockService: StockService) { }
 
   ngOnInit(): void {
   }
 
+  @Input() symbol: string;
+  
+  getDailyPriceData(){
+    this.stockService.getDailyStockPrices(this.symbol).subscribe(data => {
+      //map to the data model, then map to the graph here.
+    })
+  }
 }
