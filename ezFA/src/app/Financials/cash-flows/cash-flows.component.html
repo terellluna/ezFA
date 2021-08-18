@@ -100,7 +100,7 @@
         <th mat-header-cell *matHeaderCellDef> Dividends Paid </th>
         <td mat-cell *matCellDef="let cashFlowStatement"> {{cashFlowStatement.dividendsPaid | currency}} </td>
       </ng-container>
-
+      
       <ng-container matColumnDef="netCashUsedProvidedByFinancingActivities">
         <th mat-header-cell *matHeaderCellDef> Net Cash Used Provided By Financing Activities </th>
         <td mat-cell *matCellDef="let cashFlowStatement"> {{cashFlowStatement.netCashUsedProvidedByFinancingActivities | currency}} </td>
