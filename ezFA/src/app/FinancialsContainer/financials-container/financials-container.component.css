@@ -37,6 +37,10 @@
     padding-bottom: 0px !important;
 }
 
+::ng-deep .mat-expansion-panel-header-title, .mat-expansion-panel-header-description {
+    width: 10%;
+}
+
 .ticker{
     display: inline-flex;
     text-align: center;
