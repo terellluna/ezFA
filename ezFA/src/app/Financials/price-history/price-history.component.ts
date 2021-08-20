@@ -16,21 +16,10 @@ export class PriceHistoryComponent implements OnInit{
     this.getDailyPriceData();
   }
 
-  stockGraph: any = [
-    {
-      name: 'Stock',
-      series: [{
-        "name": new Date,
-        "value": Number
-      }
-      ]
-    }
-  ]
-
   @Input() symbol: string;
   priceData: PriceData[] = [];
   priceDate: PriceDate[] = [];
-  //stockGraph: StockGraph[] = [];
+  stockGraph: StockGraph[] = [];
   legend: boolean = true;
   showLabels: boolean = true;
   animations: boolean = true;
@@ -46,19 +35,13 @@ export class PriceHistoryComponent implements OnInit{
     this.stockService.getDailyStockPrices(this.symbol).subscribe(data => {
       //map to the data model, then map to the graph here.
       this.priceData = data.historical;
-
       this.priceData.forEach(data => {
         if(data!=null){
-          this.stockGraph[0].series.push({"name": data.date, "value": data.close})
+          this.priceDate.push(new PriceDate(data.date, data.close, data.low, data.high))
         }
-        //this.priceDate.push(new PriceDate(data.date, data.close, data.low, data.high))
       })
-
-      //this.stockGraph.push(new StockGraph(this.symbol, this.priceDate))
-
-      //this.stockGraph = Object.assign({}, this.stockGraph);
-
-      console.log(this.stockGraph);
+      this.stockGraph.push(new StockGraph(this.symbol, this.priceDate))
+      this.stockGraph = [...this.stockGraph];
     })
   }
 }
