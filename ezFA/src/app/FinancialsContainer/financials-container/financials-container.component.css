@@ -57,18 +57,16 @@
 }
 
 main{
-    display:inline-flex;
-    width:100%;
-    height:75%;
+    display:grid;
     margin-top:5px;
 }
 
 .price_panel{
-    width:50%;
+    width:auto;
 }
 
 .info_panel{
-    width:50%;
+    width:auto;
 }
 
 .mat-expansion-panel-spacing {

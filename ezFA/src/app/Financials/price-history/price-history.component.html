@@ -1,12 +1,15 @@
-<ngx-charts-line-chart
-  [legend]="legend"
-  [showXAxisLabel]="showXAxisLabel"
-  [showYAxisLabel]="showYAxisLabel"
-  [xAxis]="xAxis"
-  [yAxis]="yAxis"
-  [xAxisLabel]="xAxisLabel"
-  [yAxisLabel]="yAxisLabel"
-  [timeline]="timeline"
-  [results]="stockGraph"
-  >
-</ngx-charts-line-chart>
+<div #containerRef>
+    <ngx-charts-line-chart
+    [view]="[containerRef.offsetWidth, 400]"
+    [legend]="legend"
+    [showXAxisLabel]="showXAxisLabel"
+    [showYAxisLabel]="showYAxisLabel"
+    [xAxis]="xAxis"
+    [yAxis]="yAxis"
+    [xAxisLabel]="xAxisLabel"
+    [yAxisLabel]="yAxisLabel"
+    [timeline]="timeline"
+    [results]="stockGraph"
+    >
+  </ngx-charts-line-chart> 
+</div>

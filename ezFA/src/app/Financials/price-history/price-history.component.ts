@@ -40,8 +40,10 @@ export class PriceHistoryComponent implements OnInit{
           this.priceDate.push(new PriceDate(data.date, data.close, data.low, data.high))
         }
       })
+      this.priceDate.reverse()
       this.stockGraph.push(new StockGraph(this.symbol, this.priceDate))
       this.stockGraph = [...this.stockGraph];
+      
     })
   }
 }
