@@ -36,6 +36,7 @@ export class IncomeStatementComponent implements AfterViewInit, OnChanges {
   getIncomeStatement(){
     this.stockService.getIncomeStatement(this.symbol).subscribe(data => {
       this.incomeStatement = data;
+      this.incomeStatement = [...this.incomeStatement];
       this.dataSource = new MatTableDataSource(this.incomeStatement);
       this.loaded = true;
     });

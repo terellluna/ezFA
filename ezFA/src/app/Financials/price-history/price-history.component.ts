@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnChanges } from '@angular/core';
 import { PriceData } from 'src/app/Models/price-data.model';
 import { StockService } from 'src/app/StockService/stock.service';
 
@@ -8,11 +8,14 @@ import { StockService } from 'src/app/StockService/stock.service';
   styleUrls: ['./price-history.component.css']
 })
 
-export class PriceHistoryComponent implements OnInit{ 
+export class PriceHistoryComponent implements OnChanges{ 
 
   constructor(private stockService: StockService) {}
 
-  ngOnInit() {
+  ngOnChanges() {
+    this.priceData = [];
+    this.priceDate = [];
+    this.stockGraph = [];
     this.getDailyPriceData();
   }
 

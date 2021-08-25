@@ -34,6 +34,7 @@ export class BalanceSheetComponent implements AfterViewInit, OnChanges {
   getBalanceSheetStatement() {
     this.stockService.getBalanceSheetStatement(this.symbol).subscribe(data => {
       this.balanceSheetStatement = data;
+      this.balanceSheetStatement = [...this.balanceSheetStatement];
       this.dataSource = new MatTableDataSource(this.balanceSheetStatement);
       this.loaded = true;
     })

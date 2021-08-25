@@ -35,6 +35,7 @@ export class CashFlowsComponent implements AfterViewInit, OnChanges {
   getCashFlowStatement() {
     this.stockService.getCashFlowStatement(this.symbol).subscribe(data => {
       this.cashFlowStatement = data;
+      this.cashFlowStatement = [...this.cashFlowStatement];
       this.dataSource = new MatTableDataSource(this.cashFlowStatement);
       this.loaded = true;
     })
