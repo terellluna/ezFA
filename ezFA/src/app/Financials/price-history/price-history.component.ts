@@ -35,6 +35,7 @@ export class PriceHistoryComponent implements OnInit{
     this.stockService.getDailyStockPrices(this.symbol).subscribe(data => {
       //map to the data model, then map to the graph here.
       this.priceData = data.historical;
+      this.priceData = [...this.priceData]
       this.priceData.forEach(data => {
         if(data!=null){
           this.priceDate.push(new PriceDate(data.date, data.close, data.low, data.high))

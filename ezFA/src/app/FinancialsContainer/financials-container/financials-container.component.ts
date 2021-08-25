@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Stock } from 'src/app/Models/stock.model';
+import { StockService } from 'src/app/StockService/stock.service';
 
 @Component({
   selector: 'app-financials-container',
@@ -8,9 +10,17 @@ import { Component, OnInit } from '@angular/core';
 export class FinancialsContainerComponent implements OnInit {
 
   symbol = 'AAPL';
-  constructor() { }
+  stockList: Stock[];
+
+  constructor(private stockService: StockService) { }
 
   ngOnInit(): void {
+    this.stockService.getStockList().subscribe(data => {
+      //console.log(data)
+      this.stockList = data;
+      this.stockList = [...this.stockList]
+      console.log(this.stockList[0]);
+    })
   }
 
   research(){
