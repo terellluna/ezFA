@@ -1,7 +1,7 @@
 export class Stock {
     constructor(
-        symbol: string,
-        name: string,
-        price: number
+        public symbol: string,
+        public name: string,
+        public price: number
     ){}
 }
