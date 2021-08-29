@@ -15,8 +15,6 @@ export class IncomeStatementComponent implements AfterViewInit, OnChanges {
   loaded: boolean = false;
   displayedColumns: string[] = ['date', 'revenue', 'costOfRevenue', 'grossProfit', 'grossProfitRatio', 'researchAndDevelopmentExpenses', 'generalAndAdministrativeExpenses', 'sellingAndMarketingExpenses', 'operatingExpenses', 'operatingIncome', 'operatingIncomeRatio', 'interestExpense', 'netIncome', 'netIncomeRatio', 'eps', 'ebitda', 'ebitdaratio' ];
   dataSource: MatTableDataSource<IncomeStatement>;
-  // https://financialmodelingprep.com/developer/docs
-  url = 'https://financialmodelingprep.com/api/v3/financials/balance-sheet-statement/AAPL?period=quarter&apikey=demo';
   incomeStatement: IncomeStatement[] = [];
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
@@ -42,6 +40,7 @@ export class IncomeStatementComponent implements AfterViewInit, OnChanges {
       this.loaded = true;
     });
   }
+  
   applyFilter(filterValue: string) {
     this.dataSource.filter = filterValue.trim().toLowerCase();
 
@@ -49,5 +48,4 @@ export class IncomeStatementComponent implements AfterViewInit, OnChanges {
       this.dataSource.paginator.firstPage();
     }
   }
-
 }
