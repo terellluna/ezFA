@@ -22,7 +22,6 @@ export class IncomeStatementComponent implements AfterViewInit, OnChanges {
 
   constructor(private stockService: StockService) {}
 
-  //register changes to the symbol variable, and recall the api using the new ticker
   ngOnChanges(){
     this.getIncomeStatement();
   }
@@ -36,7 +35,9 @@ export class IncomeStatementComponent implements AfterViewInit, OnChanges {
   getIncomeStatement(){
     this.stockService.getIncomeStatement(this.symbol).subscribe(data => {
       this.incomeStatement = data;
-      this.incomeStatement = [...this.incomeStatement];
+      while(!this.incomeStatement){
+        this.incomeStatement = [...this.incomeStatement];
+      }
       this.dataSource = new MatTableDataSource(this.incomeStatement);
       this.loaded = true;
     });

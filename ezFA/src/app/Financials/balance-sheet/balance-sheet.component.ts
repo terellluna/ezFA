@@ -20,7 +20,6 @@ export class BalanceSheetComponent implements AfterViewInit, OnChanges {
   
   constructor(private stockService: StockService) { }
 
-  //register changes to the symbol variable, and recall the api using the new ticker
   ngOnChanges(){
     this.getBalanceSheetStatement();
   }

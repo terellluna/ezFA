@@ -7,7 +7,7 @@
       <!--<mat-label> Currently Researching: </mat-label>-->
       <mat-form-field appearance="outline" class="ticker">
         <div class="spacerSearch">
-          <input type="text" id="ticker" matInput value={{symbol}}>
+          <input matInput (keyup.enter)="research()" type="text" id="ticker" [(ngModel)] = "inputSymbol">
         </div>
         <div class="spacerButton">
           <button mat-button (click)="research()"> Research </button>

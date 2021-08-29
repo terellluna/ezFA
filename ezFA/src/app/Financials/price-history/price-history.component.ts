@@ -17,9 +17,11 @@ export class PriceHistoryComponent implements OnChanges{
     this.priceDate = [];
     this.stockGraph = [];
     this.getDailyPriceData();
+    this.searchedFlag = null;
   }
 
   @Input() symbol: string;
+  @Input() searchedFlag: boolean;
   priceData: PriceData[] = [];
   priceDate: PriceDate[] = [];
   stockGraph: StockGraph[] = [];
@@ -37,8 +39,10 @@ export class PriceHistoryComponent implements OnChanges{
   getDailyPriceData(){
     this.stockService.getDailyStockPrices(this.symbol).subscribe(data => {
       //map to the data model, then map to the graph here.
-      this.priceData = data.historical;
-      this.priceData = [...this.priceData]
+      this.priceData = data.historical
+      while(!this.priceData){
+        this.priceData = [...this.priceData]
+      }
       this.priceData.forEach(data => {
         if(data!=null){
           this.priceDate.push(new PriceDate(data.date, data.close, data.low, data.high))

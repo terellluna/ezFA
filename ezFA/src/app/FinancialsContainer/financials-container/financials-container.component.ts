@@ -9,9 +9,11 @@ import { StockService } from 'src/app/StockService/stock.service';
 })
 export class FinancialsContainerComponent implements OnInit {
 
+  inputSymbol = 'AAPL'
   symbol = 'AAPL';
   stockList: Stock[]
   matches: Stock[]
+  searchedFlag: boolean = false;
 
   constructor(private stockService: StockService) { }
 
@@ -20,13 +22,14 @@ export class FinancialsContainerComponent implements OnInit {
       //console.log(data)
       this.stockList = data;
       this.stockList = [...this.stockList]
-      console.log(this.stockList[0]);
+      console.log(this.stockList[0])
     })
   }
 
   research(){
-    this.symbol = (<HTMLInputElement>document.getElementById("ticker")).value;
-    console.log(this.symbol);
+    this.symbol = (<HTMLInputElement>document.getElementById("ticker")).value
+    this.searchedFlag = !this.searchedFlag
+    console.log(this.symbol)
   }
 
   //currently have list and a bar to search shit from
@@ -40,7 +43,7 @@ export class FinancialsContainerComponent implements OnInit {
 
   refine(){
     this.stockList.forEach(stock => {
-      if(stock.symbol == this.symbol){
+      if(stock.symbol.toUpperCase().includes(this.inputSymbol.toUpperCase())){
 
       }
     })

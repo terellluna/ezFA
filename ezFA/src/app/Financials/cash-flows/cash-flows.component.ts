@@ -21,7 +21,10 @@ export class CashFlowsComponent implements AfterViewInit, OnChanges {
   
   constructor(private stockService: StockService) { }
   
-  //register changes to the symbol variable, and recall the api using the new ticker
+  ngOninit(){
+    this.getCashFlowStatement();
+  }
+
   ngOnChanges(){
     this.getCashFlowStatement();
   }
