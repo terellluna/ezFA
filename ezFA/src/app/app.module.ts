@@ -18,6 +18,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { PriceHistoryComponent } from './Financials/price-history/price-history.component';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { NgxChartsModule }from '@swimlane/ngx-charts';
+import { MatCardModule } from '@angular/material/card';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { NgxChartsModule }from '@swimlane/ngx-charts';
     MatInputModule,
     MatButtonModule,
     MatExpansionModule,
-    NgxChartsModule
+    NgxChartsModule,
+    MatCardModule
   ],
   providers: [StockService],
   bootstrap: [AppComponent]

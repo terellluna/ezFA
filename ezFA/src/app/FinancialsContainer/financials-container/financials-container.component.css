@@ -67,6 +67,10 @@ main{
 
 .info_panel{
     width:auto;
+    display:flex;
+    height: 25%;
+    text-align: center;
+    justify-content: center;
 }
 
 .mat-expansion-panel-spacing {
@@ -132,4 +136,24 @@ main{
     justify-content:flex-end;
 }
 
+.income-statement-card{
+    width: 15%;
+    margin: auto;
+    height: 25vh;
+}
 
+.balance-sheet-card{
+    width: 15%;
+    margin: auto;
+    height: 25vh;
+}
+
+.cash-flow-statement-card{
+    width: 15%;
+    margin: auto;
+    height: 25vh;
+}
+
+.mat-card-header{
+    justify-content: center;
+}

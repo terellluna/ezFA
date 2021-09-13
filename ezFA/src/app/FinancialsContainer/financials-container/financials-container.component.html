@@ -23,7 +23,7 @@
   </div>
 </main>
 <div class ="info_panel">
-  <mat-accordion>
+  <!-- <mat-accordion>
       <mat-expansion-panel id="top_panel">
           <mat-expansion-panel-header>
             <mat-panel-title>
@@ -59,5 +59,27 @@
           </mat-expansion-panel-header>
           <app-balance-sheet [symbol]="symbol"></app-balance-sheet>
       </mat-expansion-panel>
-  </mat-accordion>
+  </mat-accordion> -->
+
+  <mat-card class="income-statement-card">
+    <mat-card-header>
+      <mat-card-title>Income Statement</mat-card-title>
+      <mat-card-subtitle>A summary of income for {{symbol}}</mat-card-subtitle>
+    </mat-card-header>
+  </mat-card>
+
+  <mat-card class="balance-sheet-card">
+    <mat-card-header>
+      <mat-card-title>Balance Sheet</mat-card-title>
+      <mat-card-subtitle>A summary of assets and liabilities for {{symbol}}</mat-card-subtitle>
+    </mat-card-header>
+  </mat-card>
+
+  <mat-card class="cash-flow-statement-card">
+    <mat-card-header>
+      <mat-card-title>Cash Flow Statement</mat-card-title>
+      <mat-card-subtitle>A summary of cash inflow and outflow for {{symbol}}</mat-card-subtitle>
+    </mat-card-header>
+  </mat-card>
+  
 </div>
