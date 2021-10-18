@@ -1,0 +1,300 @@
+<div class="key_ratios" *ngIf="loaded">
+    <!--NOTES FOR NEXT TIME: Work on centering the ticker on the displayed page, then work on displaying all tabs-->
+    <table mat-table [dataSource]="dataSource">
+      <ng-container matColumnDef="date">
+        <th mat-header-cell *matHeaderCellDef> Date </th>
+        <td mat-cell *matCellDef="let keyRatios"> {{keyRatios.date}} </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="revenuePerShare">
+        <th mat-header-cell *matHeaderCellDef> Revenue Per Share </th>
+        <td mat-cell *matCellDef="let keyRatios"> {{keyRatios.revenuePerShare | currency}} </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="netIncomePerShare">
+        <th mat-header-cell *matHeaderCellDef> Net Income Per Share </th>
+        <td mat-cell *matCellDef="let keyRatios"> {{keyRatios.netIncomePerShare | currency}} </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="operatingCashFlowPerShare">
+        <th mat-header-cell *matHeaderCellDef> Operating Cash Flow Per Share </th>
+        <td mat-cell *matCellDef="let keyRatios"> {{keyRatios.operatingCashFlowPerShare | currency}} </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="freeCashFlowPerShare">
+        <th mat-header-cell *matHeaderCellDef> Free Cash Flow Per Share </th>
+        <td mat-cell *matCellDef="let keyRatios"> {{keyRatios.freeCashFlowPerShare | currency}} </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="cashPerShare">
+        <th mat-header-cell *matHeaderCellDef> Cash Per Share </th>
+        <td mat-cell *matCellDef="let keyRatios"> {{keyRatios.cashPerShare | currency}} </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="bookValuePerShare">
+        <th mat-header-cell *matHeaderCellDef> Book Value Per Share </th>
+        <td mat-cell *matCellDef="let keyRatios"> {{keyRatios.bookValuePerShare | currency}} </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="tangibleBookValuePerShare">
+        <th mat-header-cell *matHeaderCellDef> Tangible Book Value Per Share </th>
+        <td mat-cell *matCellDef="let keyRatios"> {{keyRatios.tangibleBookValuePerShare | currency}} </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="shareholdersEquityPerShare">
+        <th mat-header-cell *matHeaderCellDef> Shareholders Equity Per Share </th>
+        <td mat-cell *matCellDef="let keyRatios"> {{keyRatios.shareholdersEquityPerShare | currency}} </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="interestDebtPerShare">
+        <th mat-header-cell *matHeaderCellDef> Interest Debt Per Share </th>
+        <td mat-cell *matCellDef="let keyRatios"> {{keyRatios.interestDebtPerShare | currency}} </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="marketCap">
+        <th mat-header-cell *matHeaderCellDef> Market Cap </th>
+        <td mat-cell *matCellDef="let keyRatios"> {{keyRatios.marketCap | currency}} </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="enterpriseValue">
+        <th mat-header-cell *matHeaderCellDef> Enterprise Value </th>
+        <td mat-cell *matCellDef="let keyRatios"> {{keyRatios.enterpriseValue | currency}} </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="peRatio">
+        <th mat-header-cell *matHeaderCellDef> PE Ratio </th>
+        <td mat-cell *matCellDef="let keyRatios"> {{keyRatios.peRatio | number:'.1-4'}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="priceToSalesRatio">
+        <th mat-header-cell *matHeaderCellDef> Price to Sales Ratio </th>
+        <td mat-cell *matCellDef="let keyRatios"> {{keyRatios.priceToSalesRatio | number:'.1-4'}} </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="pocfratio">
+        <th mat-header-cell *matHeaderCellDef> POCF Ratio </th>
+        <td mat-cell *matCellDef="let keyRatios"> {{keyRatios.pocfratio | number:'.1-4'}} </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="pfcfRatio">
+        <th mat-header-cell *matHeaderCellDef> PFCF Ratio </th>
+        <td mat-cell *matCellDef="let keyRatios"> {{keyRatios.pfcfRatio | number:'.1-4'}} </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="pbRatio">
+        <th mat-header-cell *matHeaderCellDef> PB Ratio </th>
+        <td mat-cell *matCellDef="let keyRatios"> {{keyRatios.pbRatio | number:'.1-4'}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="ptbRatio">
+        <th mat-header-cell *matHeaderCellDef> PTB Ratio </th>
+        <td mat-cell *matCellDef="let keyRatios"> {{keyRatios.ptbRatio | number:'.1-4'}} </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="evToSales">
+        <th mat-header-cell *matHeaderCellDef> EV to Sales </th>
+        <td mat-cell *matCellDef="let keyRatios"> {{keyRatios.evToSales | number:'.1-4'}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="enterpriseValueOverEBITDA">
+        <th mat-header-cell *matHeaderCellDef> Enterprise Value Over EBITDA </th>
+        <td mat-cell *matCellDef="let keyRatios"> {{keyRatios.enterpriseValueOverEBITDA | number:'.1-4'}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="evToOperatingCashFlow">
+        <th mat-header-cell *matHeaderCellDef> EV to Operating Cash Flow </th>
+        <td mat-cell *matCellDef="let keyRatios"> {{keyRatios.evToOperatingCashFlow | number:'.1-4'}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="evToFreeCashFlow">
+        <th mat-header-cell *matHeaderCellDef> EV to Free Cash Flow </th>
+        <td mat-cell *matCellDef="let keyRatios"> {{keyRatios.evToFreeCashFlow | number:'.1-4'}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="earningsYield">
+        <th mat-header-cell *matHeaderCellDef> Earnings Yield </th>
+        <td mat-cell *matCellDef="let keyRatios"> {{keyRatios.earningsYield | number:'.1-4'}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="freeCashFlowYield">
+        <th mat-header-cell *matHeaderCellDef> Free Cash Flow Yield </th>
+        <td mat-cell *matCellDef="let keyRatios"> {{keyRatios.freeCashFlowYield | number:'.1-4'}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="debtToAssets">
+        <th mat-header-cell *matHeaderCellDef> Debt to Assets </th>
+        <td mat-cell *matCellDef="let keyRatios"> {{keyRatios.debtToAssets | number:'.1-4'}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="debtToEquity">
+        <th mat-header-cell *matHeaderCellDef> Debt To Equity </th>
+        <td mat-cell *matCellDef="let keyRatios"> {{keyRatios.debtToEquity | number:'.1-4'}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="netDebtToEBITDA">
+        <th mat-header-cell *matHeaderCellDef> Net Debt to EBITDA </th>
+        <td mat-cell *matCellDef="let keyRatios"> {{keyRatios.netDebtToEBITDA | number:'.1-4'}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="currentRatio">
+        <th mat-header-cell *matHeaderCellDef> Current Ratio </th>
+        <td mat-cell *matCellDef="let keyRatios"> {{keyRatios.currentRatio | number:'.1-4'}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="interestCoverage">
+        <th mat-header-cell *matHeaderCellDef> Interest Coverage </th>
+        <td mat-cell *matCellDef="let keyRatios"> {{keyRatios.interestCoverage | number:'.1-4'}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="incomeQuality">
+        <th mat-header-cell *matHeaderCellDef> Income Quality </th>
+        <td mat-cell *matCellDef="let keyRatios"> {{keyRatios.incomeQuality | number:'.1-4'}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="dividendYield">
+        <th mat-header-cell *matHeaderCellDef> Dividend Yield </th>
+        <td mat-cell *matCellDef="let keyRatios"> {{keyRatios.dividendYield | number:'.1-4'}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="payoutRatio">
+        <th mat-header-cell *matHeaderCellDef> Payout Ratio </th>
+        <td mat-cell *matCellDef="let keyRatios"> {{keyRatios.payoutRatio | number:'.1-4'}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="salesGeneralAndAdministrativeToRevenue">
+        <th mat-header-cell *matHeaderCellDef> SG&A to Revenue </th>
+        <td mat-cell *matCellDef="let keyRatios"> {{keyRatios.salesGeneralAndAdministrativeToRevenue | number:'.1-4'}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="researchAndDdevelopementToRevenue">
+        <th mat-header-cell *matHeaderCellDef> R&D to Revenue </th>
+        <td mat-cell *matCellDef="let keyRatios"> {{keyRatios.researchAndDdevelopementToRevenue | number:'.1-4'}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="intangiblesToTotalAssets">
+        <th mat-header-cell *matHeaderCellDef> Intangibles to Total Assets </th>
+        <td mat-cell *matCellDef="let keyRatios"> {{keyRatios.intangiblesToTotalAssets | number:'.1-4'}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="capexToOperatingCashFlow">
+        <th mat-header-cell *matHeaderCellDef> Capex to Operating Cash Flow </th>
+        <td mat-cell *matCellDef="let keyRatios"> {{keyRatios.capexToOperatingCashFlow | number:'.1-4'}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="capexToRevenue">
+        <th mat-header-cell *matHeaderCellDef> Capex to Revenue </th>
+        <td mat-cell *matCellDef="let keyRatios"> {{keyRatios.capexToRevenue | number:'.1-4'}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="capexToDepreciation">
+        <th mat-header-cell *matHeaderCellDef> Capex to Depreciation </th>
+        <td mat-cell *matCellDef="let keyRatios"> {{keyRatios.capexToDepreciation | number:'.1-4'}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="stockBasedCompensationToRevenue">
+        <th mat-header-cell *matHeaderCellDef> Stock Based Compensation to Revenue </th>
+        <td mat-cell *matCellDef="let keyRatios"> {{keyRatios.stockBasedCompensationToRevenue | number:'.1-4'}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="grahamNumber">
+        <th mat-header-cell *matHeaderCellDef> Graham Number </th>
+        <td mat-cell *matCellDef="let keyRatios"> {{keyRatios.grahamNumber | number:'.1-4'}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="roic">
+        <th mat-header-cell *matHeaderCellDef> ROIC </th>
+        <td mat-cell *matCellDef="let keyRatios"> {{keyRatios.roic | number:'.1-4'}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="returnOnTangibleAssets">
+        <th mat-header-cell *matHeaderCellDef> Return On Tangible Assets </th>
+        <td mat-cell *matCellDef="let keyRatios"> {{keyRatios.returnOnTangibleAssets | number:'.1-4'}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="grahamNetNet">
+        <th mat-header-cell *matHeaderCellDef> Graham Net Net </th>
+        <td mat-cell *matCellDef="let keyRatios"> {{keyRatios.grahamNetNet | number:'.1-4'}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="workingCapital">
+        <th mat-header-cell *matHeaderCellDef> Working Capital </th>
+        <td mat-cell *matCellDef="let keyRatios"> {{keyRatios.workingCapital | number:'.1-4'}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="tangibleAssetValue">
+        <th mat-header-cell *matHeaderCellDef> Tangible Asset Value </th>
+        <td mat-cell *matCellDef="let keyRatios"> {{keyRatios.tangibleAssetValue | number:'.1-4'}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="netCurrentAssetValue">
+        <th mat-header-cell *matHeaderCellDef> Net Current Asset Value </th>
+        <td mat-cell *matCellDef="let keyRatios"> {{keyRatios.netCurrentAssetValue | number:'.1-4'}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="investedCapital">
+        <th mat-header-cell *matHeaderCellDef> Invested Capital </th>
+        <td mat-cell *matCellDef="let keyRatios"> {{keyRatios.investedCapital | number:'.1-4'}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="averageReceivables">
+        <th mat-header-cell *matHeaderCellDef> Average Receivables </th>
+        <td mat-cell *matCellDef="let keyRatios"> {{keyRatios.averageReceivables | number:'.1-4'}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="averagePayables">
+        <th mat-header-cell *matHeaderCellDef> Average Payables </th>
+        <td mat-cell *matCellDef="let keyRatios"> {{keyRatios.averagePayables | number:'.1-4'}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="averageInventory">
+        <th mat-header-cell *matHeaderCellDef> Average Inventory </th>
+        <td mat-cell *matCellDef="let keyRatios"> {{keyRatios.averageInventory | number:'.1-4'}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="daysSalesOutstanding">
+        <th mat-header-cell *matHeaderCellDef> Days Sales Outstanding </th>
+        <td mat-cell *matCellDef="let keyRatios"> {{keyRatios.daysSalesOutstanding | number:'.1-4'}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="daysPayablesOutstanding">
+        <th mat-header-cell *matHeaderCellDef> Days Payables Outstanding </th>
+        <td mat-cell *matCellDef="let keyRatios"> {{keyRatios.daysPayablesOutstanding | number:'.1-4'}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="daysOfInventoryOnHand">
+        <th mat-header-cell *matHeaderCellDef> Days of Inventory On Hand </th>
+        <td mat-cell *matCellDef="let keyRatios"> {{keyRatios.daysOfInventoryOnHand | number:'.1-4'}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="receivablesTurnover">
+        <th mat-header-cell *matHeaderCellDef> Receivables Turnover </th>
+        <td mat-cell *matCellDef="let keyRatios"> {{keyRatios.receivablesTurnover | number:'.1-4'}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="payablesTurnover">
+        <th mat-header-cell *matHeaderCellDef> Payables Turnover </th>
+        <td mat-cell *matCellDef="let keyRatios"> {{keyRatios.payablesTurnover | number:'.1-4'}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="inventoryTurnover">
+        <th mat-header-cell *matHeaderCellDef> Inventory Turnover </th>
+        <td mat-cell *matCellDef="let keyRatios"> {{keyRatios.inventoryTurnover | number:'.1-4'}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="roe">
+        <th mat-header-cell *matHeaderCellDef> ROE </th>
+        <td mat-cell *matCellDef="let keyRatios"> {{keyRatios.roe | number:'.1-4'}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="capexPerShare">
+        <th mat-header-cell *matHeaderCellDef> Capex Per Share </th>
+        <td mat-cell *matCellDef="let keyRatios"> {{keyRatios.capexPerShare | number:'.1-4'}} </td>
+      </ng-container>
+  
+      <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;">
+      </tr>
+    </table>
+  
+    <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+  </div>

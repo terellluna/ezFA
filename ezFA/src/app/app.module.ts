@@ -19,6 +19,8 @@ import { PriceHistoryComponent } from './Financials/price-history/price-history.
 import { MatExpansionModule } from '@angular/material/expansion';
 import { NgxChartsModule }from '@swimlane/ngx-charts';
 import { MatCardModule } from '@angular/material/card';
+import { MatDialogModule } from '@angular/material/dialog';
+import { KeyRatiosComponent } from './Financials/key-ratios/key-ratios.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +30,7 @@ import { MatCardModule } from '@angular/material/card';
     BalanceSheetComponent,
     CashFlowsComponent,
     PriceHistoryComponent,
+    KeyRatiosComponent,
   ],
   imports: [
     BrowserModule,
@@ -42,7 +45,8 @@ import { MatCardModule } from '@angular/material/card';
     MatButtonModule,
     MatExpansionModule,
     NgxChartsModule,
-    MatCardModule
+    MatCardModule,
+    MatDialogModule
   ],
   providers: [StockService],
   bootstrap: [AppComponent]

@@ -67,10 +67,16 @@ main{
 
 .info_panel{
     width:auto;
-    display:flex;
-    height: 25%;
+    display:grid;
+    grid-template-columns:47.5% 47.5%; 
     text-align: center;
     justify-content: center;
+}
+
+.financials{
+    display:grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 50% 50%;
 }
 
 .mat-expansion-panel-spacing {
@@ -137,19 +143,24 @@ main{
 }
 
 .income-statement-card{
-    width: 15%;
+    width: 100%;
     margin: auto;
     height: 25vh;
 }
 
 .balance-sheet-card{
-    width: 15%;
+    width: 100%;
     margin: auto;
     height: 25vh;
 }
 
 .cash-flow-statement-card{
-    width: 15%;
+    width: 100%;
+    margin: auto;
+    height: 25vh;
+}
+.key-ratios-card{
+    width: 100%;
     margin: auto;
     height: 25vh;
 }

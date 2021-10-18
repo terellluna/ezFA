@@ -1,4 +1,5 @@
-import { AfterViewInit, Component, Input, OnChanges, OnInit, SimpleChanges, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, Inject, Input, OnChanges, OnInit, SimpleChanges, ViewChild } from '@angular/core';
+import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { CashFlowStatement } from 'src/app/Models/cash-flow-statement.model';
@@ -9,7 +10,7 @@ import { StockService } from 'src/app/StockService/stock.service';
   templateUrl: './cash-flows.component.html',
   styleUrls: ['./cash-flows.component.css']
 })
-export class CashFlowsComponent implements AfterViewInit, OnChanges {
+export class CashFlowsComponent implements OnInit {
 
   @Input() symbol: string;
   loaded: boolean = false;
@@ -18,13 +19,10 @@ export class CashFlowsComponent implements AfterViewInit, OnChanges {
   cashFlowStatement: CashFlowStatement[] = [];
   @ViewChild(MatPaginator) paginator: MatPaginator;
   
-  constructor(private stockService: StockService) { }
+  constructor(private stockService: StockService, @Inject(MAT_DIALOG_DATA) public data: any) { }
 
-  ngOnChanges(){
-    this.getCashFlowStatement();
-  }
-
-  ngAfterViewInit(): void {
+  ngOnInit(){
+    this.symbol = this.data.symbol;
     this.getCashFlowStatement();
     this.dataSource = new MatTableDataSource(this.cashFlowStatement);
     this.dataSource.paginator = this.paginator;

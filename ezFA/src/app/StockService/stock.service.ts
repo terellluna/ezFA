@@ -12,6 +12,7 @@ export class StockService {
   balanceSheetURL = 'https://financialmodelingprep.com/api/v3/balance-sheet-statement/'
   dailyPricesURL = 'https://financialmodelingprep.com/api/v3/historical-price-full/'
   stockListURL = 'https://financialmodelingprep.com/api/v3/stock/list'
+  keyRatioURL = 'https://financialmodelingprep.com/api/v3/key-metrics/'
 
   limit = 'limit=120&'
   key = 'apikey=1d6e68c8eb58cfff2cfd43480a62c133'
@@ -36,6 +37,10 @@ export class StockService {
 
   getStockList(){
     return this.http.get<any>(this.stockListURL + '?' + this.key)
+  }
+
+  getKeyRatios(symbol: string){
+    return this.http.get<any>(this.keyRatioURL + symbol + '?' +this.limit + this.key);
   }
 }
 

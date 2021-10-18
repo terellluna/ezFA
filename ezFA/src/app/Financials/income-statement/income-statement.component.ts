@@ -1,15 +1,16 @@
-import { AfterViewInit, Component, Input, OnChanges, OnInit, SimpleChanges, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, Inject, Input, OnChanges, OnInit, SimpleChanges, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { IncomeStatement } from 'src/app/Models/income-statement.model';
 import { StockService } from 'src/app/StockService/stock.service';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-income-statement',
   templateUrl: './income-statement.component.html',
   styleUrls: ['./income-statement.component.css']
 })
-export class IncomeStatementComponent implements AfterViewInit, OnChanges {
+export class IncomeStatementComponent implements OnInit {
 
   @Input() symbol: string;
   loaded: boolean = false;
@@ -18,13 +19,10 @@ export class IncomeStatementComponent implements AfterViewInit, OnChanges {
   incomeStatement: IncomeStatement[] = [];
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
-  constructor(private stockService: StockService) {}
+  constructor(private stockService: StockService, @Inject(MAT_DIALOG_DATA) public data: any) {}
 
-  ngOnChanges(){
-    this.getIncomeStatement();
-  }
-
-  ngAfterViewInit() {
+  ngOnInit(){
+    this.symbol = this.data.symbol;
     this.getIncomeStatement();
     this.dataSource = new MatTableDataSource(this.incomeStatement);
     this.dataSource.paginator = this.paginator;

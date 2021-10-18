@@ -23,63 +23,36 @@
   </div>
 </main>
 <div class ="info_panel">
-  <!-- <mat-accordion>
-      <mat-expansion-panel id="top_panel">
-          <mat-expansion-panel-header>
-            <mat-panel-title>
-              Income Statement
-            </mat-panel-title>
-            <mat-panel-description>
-              A summary of income for {{symbol}}
-            </mat-panel-description>
-          </mat-expansion-panel-header>
-          <app-income-statement [symbol]="symbol"></app-income-statement>
-      </mat-expansion-panel>
-
-      <mat-expansion-panel>
-          <mat-expansion-panel-header>
-            <mat-panel-title>
-              Cash Flow Statement
-            </mat-panel-title>
-            <mat-panel-description>
-              A summary of cash inflow and outflow for {{symbol}}
-            </mat-panel-description>
-          </mat-expansion-panel-header>
-          <app-cash-flows [symbol]="symbol"></app-cash-flows>
-      </mat-expansion-panel>
-
-      <mat-expansion-panel id="bottom_panel">
-          <mat-expansion-panel-header>
-            <mat-panel-title>
-              Balance Sheet
-            </mat-panel-title>
-            <mat-panel-description>
-              A summary of assets and liabilities for {{symbol}}
-            </mat-panel-description>
-          </mat-expansion-panel-header>
-          <app-balance-sheet [symbol]="symbol"></app-balance-sheet>
-      </mat-expansion-panel>
-  </mat-accordion> -->
-
-  <mat-card class="income-statement-card">
-    <mat-card-header>
-      <mat-card-title>Income Statement</mat-card-title>
-      <mat-card-subtitle>A summary of income for {{symbol}}</mat-card-subtitle>
-    </mat-card-header>
-  </mat-card>
-
-  <mat-card class="balance-sheet-card">
-    <mat-card-header>
-      <mat-card-title>Balance Sheet</mat-card-title>
-      <mat-card-subtitle>A summary of assets and liabilities for {{symbol}}</mat-card-subtitle>
-    </mat-card-header>
-  </mat-card>
-
-  <mat-card class="cash-flow-statement-card">
-    <mat-card-header>
-      <mat-card-title>Cash Flow Statement</mat-card-title>
-      <mat-card-subtitle>A summary of cash inflow and outflow for {{symbol}}</mat-card-subtitle>
-    </mat-card-header>
-  </mat-card>
+  <div class = "news">
+    
+  </div>
+  <div class = "financials">
+    <mat-card class="income-statement-card" (click)="openIncStatDialog()">
+      <mat-card-header>
+        <mat-card-title>Income Statement</mat-card-title>
+        <mat-card-subtitle>A summary of income for {{symbol}}</mat-card-subtitle>
+      </mat-card-header>
+    </mat-card>
   
+    <mat-card class="balance-sheet-card" (click)="openBalSheetDialog()">
+      <mat-card-header>
+        <mat-card-title>Balance Sheet</mat-card-title>
+        <mat-card-subtitle>A summary of assets and liabilities for {{symbol}}</mat-card-subtitle>
+      </mat-card-header>
+    </mat-card>
+  
+    <mat-card class="cash-flow-statement-card" (click)="openCashFlowDialog()">
+      <mat-card-header>
+        <mat-card-title>Cash Flow Statement</mat-card-title>
+        <mat-card-subtitle>A summary of cash inflow and outflow for {{symbol}}</mat-card-subtitle>
+      </mat-card-header>
+    </mat-card>
+    
+    <mat-card class="key-ratios-card" (click)="openKeyRatiosDialog()">
+      <mat-card-header>
+        <mat-card-title>Key Ratios</mat-card-title>
+        <mat-card-subtitle>Key financial ratios for {{symbol}}</mat-card-subtitle>
+      </mat-card-header>
+    </mat-card>
+  </div>
 </div>

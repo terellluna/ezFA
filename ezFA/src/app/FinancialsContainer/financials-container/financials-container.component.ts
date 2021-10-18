@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { BalanceSheetComponent } from 'src/app/Financials/balance-sheet/balance-sheet.component';
+import { CashFlowsComponent } from 'src/app/Financials/cash-flows/cash-flows.component';
+import { IncomeStatementComponent } from 'src/app/Financials/income-statement/income-statement.component';
+import { KeyRatiosComponent } from 'src/app/Financials/key-ratios/key-ratios.component';
 import { Stock } from 'src/app/Models/stock.model';
 import { StockService } from 'src/app/StockService/stock.service';
 
@@ -10,27 +15,58 @@ import { StockService } from 'src/app/StockService/stock.service';
 export class FinancialsContainerComponent implements OnInit {
 
   inputSymbol = 'AAPL'
+  inputName = "Apple Corporation"
   symbol = 'AAPL';
   stockList: Stock[]
   matches: Stock[]
-  searchedFlag: boolean = false;
 
-  constructor(private stockService: StockService) { }
+  constructor(private stockService: StockService, public dialog: MatDialog) { }
 
   ngOnInit(): void {
     this.stockService.getStockList().subscribe(data => {
-      //console.log(data)
       this.stockList = data;
       this.stockList = [...this.stockList]
-      console.log(this.stockList[0])
+    })
+  }
+
+  ngOnChanges(): void{
+    this.matches = this.stockList.filter(stock => stock.symbol.includes(this.inputSymbol) || stock.name.includes(this.inputSymbol));
+    console.log(this.matches);
+  }
+
+  openIncStatDialog(){
+    const dialogRef = this.dialog.open(IncomeStatementComponent, {
+      data: {
+        symbol: this.symbol
+      }
+    });
+  }
+  openBalSheetDialog(){
+    const dialogRef = this.dialog.open(BalanceSheetComponent, {
+      data: {
+        symbol: this.symbol
+      }
+    });
+  }
+  openCashFlowDialog(){
+    const dialogRef = this.dialog.open(CashFlowsComponent, {
+      data: {
+        symbol: this.symbol
+      }
+    });
+  }
+  
+  openKeyRatiosDialog(){
+    const dialogRef = this.dialog.open(KeyRatiosComponent, {
+      data: {
+        symbol: this.symbol
+      }
     })
   }
 
   research(){
     this.symbol = (<HTMLInputElement>document.getElementById("ticker")).value
-    this.searchedFlag = !this.searchedFlag
-    console.log(this.symbol)
-  }
+  } 
 
   //currently have list and a bar to search shit from
   //need to display list of matches below search bar while the search bar is selected

@@ -1,4 +1,5 @@
-import { AfterViewInit, Component, Input, OnChanges, OnInit, SimpleChanges, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, Inject, Input, OnChanges, OnInit, SimpleChanges, ViewChild } from '@angular/core';
+import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { BalanceSheetStatement } from 'src/app/Models/balance-sheet-statement.model';
@@ -9,7 +10,7 @@ import { StockService } from 'src/app/StockService/stock.service';
   templateUrl: './balance-sheet.component.html',
   styleUrls: ['./balance-sheet.component.css']
 })
-export class BalanceSheetComponent implements AfterViewInit, OnChanges {
+export class BalanceSheetComponent implements OnInit {
 
   @Input() symbol: string;
   loaded: boolean = false;
@@ -18,15 +19,12 @@ export class BalanceSheetComponent implements AfterViewInit, OnChanges {
   balanceSheetStatement: BalanceSheetStatement[] = [];
   @ViewChild(MatPaginator) paginator: MatPaginator;
   
-  constructor(private stockService: StockService) { }
+  constructor(private stockService: StockService,  @Inject(MAT_DIALOG_DATA) public data: any) { }
 
-  ngOnChanges(){
+  ngOnInit(){
+    this.symbol = this.data.symbol;
     this.getBalanceSheetStatement();
-  }
-
-  ngAfterViewInit(): void {
-    this.getBalanceSheetStatement();
-    this.dataSource =  new MatTableDataSource(this.balanceSheetStatement);
+    this.dataSource = new MatTableDataSource(this.balanceSheetStatement);
     this.dataSource.paginator = this.paginator;
   }
 
