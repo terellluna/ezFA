@@ -14,18 +14,21 @@ import { StockService } from 'src/app/StockService/stock.service';
 })
 export class FinancialsContainerComponent implements OnInit {
 
-  inputSymbol = 'AAPL'
-  inputName = "Apple Corporation"
+  inputSymbol = 'AAPL';
+  inputName = "Apple Corporation";
   symbol = 'AAPL';
-  stockList: Stock[]
-  matches: Stock[]
+  stockList: Stock[];
+  symbols: string[];
+  matches: Stock[];
 
   constructor(private stockService: StockService, public dialog: MatDialog) { }
 
   ngOnInit(): void {
     this.stockService.getStockList().subscribe(data => {
       this.stockList = data;
+      this.symbols = data.symbol;
       this.stockList = [...this.stockList]
+      console.log(this.stockList.find(stock => stock.symbol == this.symbol));
     })
   }
 

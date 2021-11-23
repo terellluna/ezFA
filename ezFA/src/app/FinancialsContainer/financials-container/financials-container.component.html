@@ -19,12 +19,21 @@
 
 <main>
   <div class="price_panel">
+    <header>
+      {{symbol}} Price History
+    </header>
     <app-price-history [symbol]="symbol"></app-price-history>
   </div>
 </main>
 <div class ="info_panel">
+  <header>
+    {{symbol}} News
+  </header>
+  <header>
+    Financials
+  </header>
   <div class = "news">
-    
+    Poop
   </div>
   <div class = "financials">
     <mat-card class="income-statement-card" (click)="openIncStatDialog()">
