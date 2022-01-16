@@ -15,7 +15,7 @@ export class StockService {
   keyRatioURL = 'https://financialmodelingprep.com/api/v3/key-metrics/'
 
   limit = 'limit=120&'
-  key = 'apikey=1d6e68c8eb58cfff2cfd43480a62c133'
+  key = 'apikey='
 
   constructor(private http: HttpClient) { }
 
